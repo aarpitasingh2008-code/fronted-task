@@ -1,0 +1,274 @@
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>About Me</title>
+
+    <style>
+
+        /* ELEMENT SELECTOR */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #fef3c7;
+            color: rgb(55, 65, 81);
+        }
+
+        /* ID SELECTOR */
+        #header {
+            background: linear-gradient(135deg, #7c3aed, #ec4899);
+            color: white;
+            text-align: center;
+            padding: 35px;
+        }
+
+        #header h1 {
+            margin: 0;
+            font-size: 42px;
+        }
+
+        #header p {
+            color: rgb(255, 240, 250);
+            font-size: 18px;
+        }
+
+        /* MOVING TEXT */
+        .moving {
+            background-color: #f97316;
+            color: white;
+            padding: 10px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        /* CLASS SELECTOR */
+        .container {
+            width: 85%;
+            max-width: 1000px;
+            margin: 30px auto;
+        }
+
+        .card {
+            background-color: white;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 15px;
+            border: 3px solid #c084fc;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .card h2 {
+            color: #7c3aed;
+            border-bottom: 3px solid #f59e0b;
+            padding-bottom: 8px;
+        }
+
+        .intro {
+            font-size: 17px;
+            line-height: 1.7;
+        }
+
+        /* HIGHLIGHT CLASS */
+        .highlight {
+            color: #ec4899;
+            font-weight: bold;
+        }
+
+        /* TWO COLUMN SECTION */
+        .sections {
+            display: flex;
+            gap: 25px;
+        }
+
+        .sections .card {
+            flex: 1;
+        }
+
+        /* UNORDERED LIST */
+        ul {
+            list-style-type: square;
+            padding-left: 25px;
+        }
+
+        ul li {
+            padding: 8px;
+            color: rgb(37, 99, 235);
+        }
+
+        /* ORDERED LIST */
+        ol {
+            padding-left: 25px;
+        }
+
+        ol li {
+            padding: 8px;
+            color: #db2777;
+        }
+
+        /* PSEUDO-CLASS SELECTOR */
+        li:hover {
+            background-color: #fef08a;
+            color: #7c2d12;
+            border-radius: 6px;
+        }
+
+        /* LINK PSEUDO-CLASS */
+        a {
+            color: #7c3aed;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        a:hover {
+            color: #ec4899;
+            text-decoration: underline;
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: #312e81;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+        }
+
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 700px) {
+            .sections {
+                flex-direction: column;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header id="header">
+        <h1>✨ About Me ✨</h1>
+        <p>Student | Programmer | Web Enthusiast</p>
+    </header>
+
+    <!-- MOVING TEXT -->
+    <div class="moving">
+        <marquee>
+            🌟 Welcome to My Personal Page! &nbsp;&nbsp;
+            💻 Keep Learning • Keep Growing • Keep Creating! 🚀
+        </marquee>
+    </div>
+
+    <main class="container">
+
+        <!-- INTRODUCTION -->
+        <section class="card">
+
+            <h2>👋 Who Am I?</h2>
+
+            <p class="intro">
+                Hello! My name is
+                <span class="highlight">Arpita</span>.
+                I am a college student with a strong interest in
+                technology, programming and web development.
+            </p>
+
+            <p class="intro">
+                I enjoy learning new technologies and improving my
+                problem-solving skills. I love creating websites
+                and exploring new ideas.
+            </p>
+
+        </section>
+
+
+        <!-- HOBBIES AND CITIES -->
+        <div class="sections">
+
+            <!-- HOBBIES -->
+            <section class="card">
+
+                <h2>🎨 My Hobbies</h2>
+
+                <ul>
+                    <li>📚 Reading</li>
+                    <li>🎵 Listening to Music</li>
+                    <li>✈️ Travelling</li>
+                    <li>💻 Learning Programming</li>
+                    <li>🌐 Creating Websites</li>
+                </ul>
+
+            </section>
+
+
+            <!-- CITIES -->
+            <section class="card">
+
+                <h2>🌍 Favourite Cities</h2>
+
+                <ul>
+                    <li>🏙️ Delhi</li>
+                    <li>🏰 Jaipur</li>
+                    <li>🌊 Mumbai</li>
+                    <li>🏔️ Manali</li>
+                    <li>🏛️ Agra</li>
+                </ul>
+
+            </section>
+
+        </div>
+
+
+        <!-- MOVIES -->
+        <section class="card">
+
+            <h2>🎬 My Favourite Movies</h2>
+
+            <ol>
+                <li>3 Idiots</li>
+                <li>Dangal</li>
+                <li>Chhichhore</li>
+                <li>Taare Zameen Par</li>
+                <li>Yeh Jawaani Hai Deewani</li>
+            </ol>
+
+        </section>
+
+
+        <!-- GOAL -->
+        <section class="card">
+
+            <h2>🎯 My Goal</h2>
+
+            <p class="intro">
+                My goal is to develop strong technical skills,
+                learn new technologies and use my knowledge to
+                create useful and meaningful projects.
+            </p>
+
+        </section>
+
+
+        <!-- CONTACT -->
+        <section class="card">
+
+            <h2>📩 Connect With Me</h2>
+
+            <p>
+                Email:
+                <a href="#">arpita@example.com</a>
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer>
+        <p>💜 Designed by Arpita | Keep Learning & Keep Growing 🚀</p>
+    </footer>
+
+</body>
+</html>
+```
