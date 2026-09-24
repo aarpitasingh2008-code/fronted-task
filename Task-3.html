@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Colorful Responsive Web Layout</title>
+>
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+    <style>
+
+     
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+
+            background: linear-gradient(
+                135deg,
+                #fdf2ff,
+                #eaf4ff
+            );
+
+            color: #292344;
+        }
+
+
+
+        .sidebar {
+
+            background: linear-gradient(
+                180deg,
+                #4b1fa8,
+                #7625c9,
+                #d63384
+            );
+
+            min-height: 100vh;
+
+            padding: 30px 20px;
+
+            color: white;
+
+            box-shadow: 5px 0 20px
+                rgba(80, 30, 130, 0.2);
+        }
+
+        .sidebar h2 {
+
+            font-size: 28px;
+
+            font-weight: bold;
+
+            text-align: center;
+
+            margin-bottom: 35px;
+
+            color: #ffe66d;
+        }
+
+        .sidebar p {
+
+            text-align: center;
+
+            font-size: 14px;
+
+            margin-bottom: 25px;
+
+            color: #f5dfff;
+        }
+
+        .sidebar a {
+
+            display: block;
+
+            color: white;
+
+            text-decoration: none;
+
+            padding: 14px 18px;
+
+            margin-bottom: 12px;
+
+            border-radius: 12px;
+
+            font-weight: 500;
+
+            transition: 0.3s;
+
+            background-color: rgba(255, 255, 255, 0.08);
+        }
+
+        .sidebar a:hover {
+
+            background-color: #ffe66d;
+
+            color: #4b1fa8;
+
+            transform: translateX(8px);
+
+        }
+
+
+
+        .main-content {
+
+            padding: 35px;
+        }
+
+
+        /* ================= HEADER ================= */
+
+        .main-heading {
+
+            background: linear-gradient(
+                135deg,
+                #6a11cb,
+                #2575fc
+            );
+
+            color: white;
+
+            padding: 35px;
+
+            border-radius: 20px;
+
+            text-align: center;
+
+            margin-bottom: 35px;
+
+            box-shadow: 0 10px 25px
+                rgba(70, 70, 180, 0.2);
+        }
+
+        .main-heading h1 {
+
+            font-size: 38px;
+
+            font-weight: bold;
+
+            margin-bottom: 10px;
+        }
+
+        .main-heading p {
+
+            margin: 0;
+
+            color: #e9e9ff;
+        }
+
+
+        
+        .section-title {
+
+            color: #5521a8;
+
+            font-weight: bold;
+
+            margin-bottom: 20px;
+
+            border-left: 6px solid #ff4f9a;
+
+            padding-left: 12px;
+        }
+
+
+        /* ================= PRODUCT CARD ================= */
+
+        .product-card {
+
+            background: white;
+
+            /*
+              CSS BOX MODEL
+              Margin + Border + Padding + Content
+            */
+
+            margin: 10px;
+
+            padding: 22px;
+
+            border: 3px solid #e5d5ff;
+
+            border-radius: 20px;
+
+            text-align: center;
+
+            box-shadow: 0 10px 25px
+                rgba(80, 40, 150, 0.12);
+
+            transition: 0.3s;
+
+            height: 100%;
+        }
+
+        .product-card:hover {
+
+            transform: translateY(-8px);
+
+            border-color: #a855f7;
+
+            box-shadow: 0 18px 35px
+                rgba(100, 50, 180, 0.2);
+        }
+
+        .product-card img {
+
+            width: 100%;
+
+            height: 220px;
+
+            object-fit: cover;
+
+            border-radius: 15px;
+
+            border: 3px solid #f0e6ff;
+
+        }
+
+        .product-card h3 {
+
+            margin-top: 20px;
+
+            color: #5424a8;
+
+            font-weight: bold;
+
+        }
+
+        .product-card p {
+
+            color: #777;
+
+            line-height: 1.7;
+
+        }
+
+        .price {
+
+            font-size: 26px;
+
+            font-weight: bold;
+
+            color: #e83e8c;
+
+            margin: 18px;
+
+        }
+
+        .buy-button {
+
+            background: linear-gradient(
+                135deg,
+                #6a11cb,
+                #e83e8c
+            );
+
+            color: white;
+
+            border: none;
+
+            padding: 12px 30px;
+
+            border-radius: 25px;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+        .buy-button:hover {
+
+            transform: scale(1.08);
+
+            background: linear-gradient(
+                135deg,
+                #e83e8c,
+                #6a11cb
+            );
+        }
+
+
+
+        .blog-container {
+
+            display: flex;
+
+            gap: 25px;
+
+            margin-top: 20px;
+
+            align-items: stretch;
+        }
+
+
+   
+
+        .blog-card {
+
+            flex: 1;
+
+            background: white;
+
+            border: 2px solid #eadfff;
+
+            padding: 25px;
+
+            border-radius: 18px;
+
+            box-shadow: 0 8px 20px
+                rgba(80, 40, 150, 0.1);
+
+            transition: 0.3s;
+
+            position: relative;
+
+            overflow: hidden;
+        }
+
+        .blog-card:hover {
+
+            transform: translateY(-8px);
+
+            box-shadow: 0 15px 30px
+                rgba(80, 40, 150, 0.2);
+        }
+
+        /* Colorful top border */
+
+        .blog-card::before {
+
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+
+            left: 0;
+
+            width: 100%;
+
+            height: 7px;
+
+            background: #6a11cb;
+        }
+
+        .blog-card:nth-child(2)::before {
+
+            background: #ff4f9a;
+        }
+
+        .blog-card:nth-child(3)::before {
+
+            background: #00b894;
+        }
+
+        .blog-card h3 {
+
+            margin-top: 10px;
+
+            margin-bottom: 15px;
+
+            color: #5424a8;
+
+            font-weight: bold;
+        }
+
+        .blog-card p {
+
+            color: #666;
+
+            line-height: 1.7;
+
+            min-height: 120px;
+        }
+
+        .blog-card:nth-child(2) h3 {
+
+            color: #d63384;
+        }
+
+        .blog-card:nth-child(3) h3 {
+
+            color: #008f72;
+        }
+
+        .read-button {
+
+            border: 2px solid #6a11cb;
+
+            color: #6a11cb;
+
+            background: transparent;
+
+            padding: 9px 20px;
+
+            border-radius: 25px;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+        .read-button:hover {
+
+            background: #6a11cb;
+
+            color: white;
+
+            transform: scale(1.05);
+        }
+
+
+   
+
+        .footer {
+
+            margin-top: 40px;
+
+            padding: 25px;
+
+            text-align: center;
+
+            background: linear-gradient(
+                135deg,
+                #4b1fa8,
+                #d63384
+            );
+
+            color: white;
+
+            border-radius: 18px;
+        }
+
+        .footer h3 {
+
+            color: #ffe66d;
+
+            font-weight: bold;
+        }
+
+
+       
+
+        @media (max-width: 992px) {
+
+            .main-content {
+
+                padding: 25px;
+            }
+
+            .main-heading h1 {
+
+                font-size: 32px;
+            }
+
+            .blog-container {
+
+                gap: 15px;
+            }
+
+            .blog-card {
+
+                padding: 18px;
+            }
+
+        }
+
+
+
+
+        @media (max-width: 768px) {
+
+            .sidebar {
+
+                min-height: auto;
+
+                text-align: center;
+
+                padding: 25px 15px;
+            }
+
+            .sidebar h2 {
+
+                margin-bottom: 20px;
+            }
+
+            .sidebar a {
+
+                display: inline-block;
+
+                margin: 5px;
+
+                padding: 10px 15px;
+            }
+
+            .main-content {
+
+                padding: 20px 15px;
+            }
+
+            .main-heading {
+
+                padding: 25px 15px;
+            }
+
+            .main-heading h1 {
+
+                font-size: 28px;
+            }
+
+            .product-card {
+
+                margin: 10px 0;
+            }
+
+            .blog-container {
+
+                flex-direction: column;
+            }
+
+            .blog-card {
+
+                width: 100%;
+            }
+
+            .blog-card p {
+
+                min-height: auto;
+            }
+
+        }
+
+
+
+        @media (max-width: 450px) {
+
+            .main-heading h1 {
+
+                font-size: 24px;
+            }
+
+            .section-title {
+
+                font-size: 23px;
+            }
+
+            .product-card img {
+
+                height: 180px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+
+    <div class="container-fluid">
+
+        <div class="row">
+
+
+            <div class="col-md-3 sidebar">
+
+                <h2>✨ My Website</h2>
+
+                <p>
+                    Explore • Learn • Create
+                </p>
+
+                <a href="#">🏠 Home</a>
+
+                <a href="#">🛍 Products</a>
+
+                <a href="#">📝 Blog</a>
+
+                <a href="#">👤 About</a>
+
+                <a href="#">📞 Contact</a>
+
+            </div>
+
+
+
+            <div class="col-md-9 main-content">
+
+
+                <!-- HEADER -->
+
+                <div class="main-heading">
+
+                    <h1>
+                        🌈 Responsive Web Layout
+                    </h1>
+
+                    <p>
+                        A colorful website designed using HTML,
+                        CSS and Bootstrap
+                    </p>
+
+                </div>
+
+
+
+                <h2 class="section-title">
+
+                    🛍 Featured Product
+
+                </h2>
+
+                <div class="row">
+
+
+                    <div class="col-md-6 col-lg-6">
+
+                        <div class="product-card">
+
+
+                            <img
+                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsuHAJCW-qz5sZZQS8fORe9zNEXzjZm9WTJerrJwOx1A&s=10"
+                                alt="Wireless Headphones">
+
+
+                            <h3>
+                                🎧 Wireless Headphones
+                            </h3>
+
+
+                            <p>
+
+                                High-quality wireless headphones
+                                with excellent sound quality,
+                                comfortable design and powerful
+                                performance.
+
+                            </p>
+
+
+                            <div class="price">
+
+                                ₹1,999
+
+                            </div>
+
+
+                            <button class="buy-button">
+
+                                🛒 Buy Now
+
+                            </button>
+
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+                
+
+                <h2 class="section-title mt-5">
+
+                    📚 Latest Blog Posts
+
+                </h2>
+
+
+                <div class="blog-container">
+
+
+                    
+
+                    <div class="blog-card">
+
+                        <h3>
+                            💻 HTML Basics
+                        </h3>
+
+                        <p>
+
+                            HTML is used to create the structure
+                            of a webpage. Learn headings,
+                            paragraphs, links, images and forms.
+
+                        </p>
+
+                        <button class="read-button">
+
+                            Read More →
+
+                        </button>
+
+                    </div>
+
+
+
+                    <div class="blog-card">
+
+                        <h3>
+                            🎨 CSS Styling
+                        </h3>
+
+                        <p>
+
+                            CSS is used to style webpages.
+                            It controls colors, fonts, spacing,
+                            borders and responsive layouts.
+
+                        </p>
+
+                        <button class="read-button">
+
+                            Read More →
+
+                        </button>
+
+                    </div>
+
+
+                   
+
+                    <div class="blog-card">
+
+                        <h3>
+                            🚀 Bootstrap
+
+                        </h3>
+
+                        <p>
+
+                            Bootstrap is a CSS framework that
+                            helps developers create responsive
+                            websites quickly and efficiently.
+
+                        </p>
+
+                        <button class="read-button">
+
+                            Read More →
+
+                        </button>
+
+                    </div>
+
+
+                </div>
+
+
+                <!-- ================= FOOTER ================= -->
+
+                <div class="footer">
+
+                    <h3>
+                        ✨ Thank You for Visiting!
+                    </h3>
+
+                    <p>
+                        Designed with HTML, CSS and Bootstrap
+                    </p>
+
+                    <p>
+                        © 2026 My Colorful Website
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+</body>
+
+</html>
