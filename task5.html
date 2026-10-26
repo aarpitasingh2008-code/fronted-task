@@ -1,0 +1,28 @@
+<html>
+    
+<head>
+    <title>Voting System</title>
+</head>
+<body>
+<h1>Age Validator</h1>
+
+<script>
+let age = prompt("Enter your age:");
+
+if (age == null || !Number.isInteger(Number(age)) || Number(age) < 0) {
+    alert("Enter a valid age.");
+    document.write("Enter a valid age.")
+
+} else if (Number(age) >= 18) {
+
+    alert("You are eligible to vote.");
+    document.write("Age: " + age);
+
+} else {
+
+    alert("You are not eligible to vote.");
+    document.write("Age: " + age);
+}
+</script>
+</body>
+</html>
