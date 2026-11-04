@@ -1,16 +1,243 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Print Characters</title>
+    <title>JavaScript Practical Programs</title>
 </head>
 <body>
 
+<h2>JavaScript Practical Programs</h2>
+<pre id="output"></pre>
+
 <script>
-    let str = prompt("Enter a string:");
+
+let result = "";
+
+// 1. Prime numbers from 1 to 100 using for loop
+
+result += "1. PRIME NUMBERS FROM 1 TO 100\n";
+
+for (let i = 2; i <= 100; i++) {
+    let count = 0;
+
+    for (let j = 1; j <= i; j++) {
+        if (i % j == 0) {
+            count++;
+        }
+    }
+
+    if (count == 2) {
+        result += i + " ";
+    }
+}
+
+result += "\n\n";
+
+
+// 2. Multiplication tables from 2 to 5
+// Using nested for loop
+
+result += "2. MULTIPLICATION TABLES\n";
+
+for (let i = 2; i <= 5; i++) {
+    result += "\nTable of " + i + "\n";
+
+    for (let j = 1; j <= 10; j++) {
+        result += i + " x " + j + " = " + (i * j) + "\n";
+    }
+}
+
+result += "\n";
+
+
+// 3. Armstrong numbers between 100 and 900
+
+result += "3. ARMSTRONG NUMBERS BETWEEN 100 AND 900\n";
+
+for (let i = 100; i <= 900; i++) {
+    let num = i;
+    let sum = 0;
+
+    while (num > 0) {
+        let digit = num % 10;
+        sum += digit * digit * digit;
+        num = Math.floor(num / 10);
+    }
+
+    if (sum == i) {
+        result += i + " ";
+    }
+}
+
+result += "\n\n";
+
+
+// 4. Sum of positive and negative numbers
+// Also count zeroes
+
+result += "4. ARRAY PROCESSING\n";
+
+let arr = [-5, 10, 0, -3, 8, 0, 4];
+
+let positiveSum = 0;
+let negativeSum = 0;
+let zeroCount = 0;
+
+for (let i = 0; i < arr.length; i++) {
+
+    if (arr[i] > 0) {
+        positiveSum += arr[i];
+    }
+    else if (arr[i] < 0) {
+        negativeSum += arr[i];
+    }
+    else {
+        zeroCount++;
+    }
+}
+
+result += "Array: " + arr + "\n";
+result += "Positive Sum: " + positiveSum + "\n";
+result += "Negative Sum: " + negativeSum + "\n";
+result += "Zero Count: " + zeroCount + "\n\n";
+
+
+// 5. Sum of even and odd digits using while loop
+
+result += "5. SUM OF EVEN AND ODD DIGITS\n";
+
+let number = 5837462;
+let evenSum = 0;
+let oddSum = 0;
+
+while (number > 0) {
+
+    let digit = number % 10;
+
+    if (digit % 2 == 0) {
+        evenSum += digit;
+    }
+    else {
+        oddSum += digit;
+    }
+
+    number = Math.floor(number / 10);
+}
+
+result += "Even Digit Sum: " + evenSum + "\n";
+result += "Odd Digit Sum: " + oddSum + "\n\n";
+
+
+// 6. Check palindrome using while loop
+
+result += "6. PALINDROME ARRAY\n";
+
+let palindrome = [1, 2, 3, 2, 1];
+
+let start = 0;
+let end = palindrome.length - 1;
+let isPalindrome = true;
+
+while (start < end) {
+
+    if (palindrome[start] != palindrome[end]) {
+        isPalindrome = false;
+        break;
+    }
+
+    start++;
+    end--;
+}
+
+result += "Array: " + palindrome + "\n";
+
+if (isPalindrome) {
+    result += "It is a Palindrome\n\n";
+}
+else {
+    result += "It is not a Palindrome\n\n";
+}
+
+
+// 7. Sequence using do-while loop
+// 5, 10, 15 ... 100
+
+result += "7. SEQUENCE USING DO-WHILE LOOP\n";
+
+let i = 5;
+let totalSum = 0;
+
+do {
+    result += i + " ";
+    totalSum += i;
+    i += 5;
+}
+while (i <= 100);
+
+result += "\nTotal Sum: " + totalSum + "\n\n";
+
+
+// 8. Electricity bill using switch case
+
+result += "8. ELECTRICITY BILL\n";
+
+let category = prompt(
+    "Enter category: Domestic, Commercial or Industrial"
+);
+
+let units = Number(prompt("Enter electricity units:"));
+
+let rate;
+
+switch (category.toLowerCase()) {
+
+    case "domestic":
+        rate = 5;
+        break;
+
+    case "commercial":
+        rate = 8;
+        break;
+
+    case "industrial":
+        rate = 10;
+        break;
+
+    default:
+        rate = -1;
+}
+
+if (rate == -1 || units < 0 || !Number.isFinite(units)) {
+    result += "Invalid category or units\n\n";
+}
+else {
+    let bill = units * rate;
+
+    result += "Category: " + category + "\n";
+    result += "Units: " + units + "\n";
+    result += "Rate: Rs. " + rate + " per unit\n";
+    result += "Total Electricity Bill: Rs. " + bill + "\n\n";
+}
+
+
+// 9. Take uppercase input using prompt
+// Print each character on a new line
+
+result += "9. PRINT EACH CHARACTER ON A NEW LINE\n";
+
+let str = prompt("Enter a word in capital letters:");
+
+if (str != null) {
 
     for (let i = 0; i < str.length; i++) {
-        document.write(str[i] + "<br>");
+        result += str[i] + "\n";
     }
+}
+
+
+// Display all outputs on webpage
+
+document.getElementById("output").textContent = result;
+
 </script>
 
 </body>
