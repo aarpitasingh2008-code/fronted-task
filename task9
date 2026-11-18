@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Asynchronous Programming</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: lightblue;
+            text-align: center;
+            padding: 50px;
+        }
+
+        .container {
+            background-color: white;
+            width: 400px;
+            margin: auto;
+            padding: 25px;
+            border-radius: 10px;
+        }
+
+        button {
+            background-color: green;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+            color: darkblue;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Server Data Fetching</h1>
+
+        <p>Click the button to fetch server data.</p>
+
+        <button id="fetchBtn">Fetch Data</button>
+
+        <div id="result"></div>
+
+    </div>
+
+
+    <script>
+
+       
+
+        function fetchData() {
+
+            return new Promise(function(resolve, reject) {
+
+               
+
+                setTimeout(function() {
+
+                    let serverData = {
+                        id: 125150003122,
+                        name: "Arpita Singh",
+                        course: "Full Stack Development with AI",
+                        status: "Data Fetched Successfully"
+                    };
+
+                    // Resolve the Promise
+                    resolve(serverData);
+
+                }, 3000);
+
+            });
+
+        }
+
+
+        
+
+        let button = document.getElementById("fetchBtn");
+
+        let result = document.getElementById("result");
+
+
+        
+
+        button.addEventListener("click", function() {
+
+            result.innerHTML = "Loading data...";
+
+            button.disabled = true;
+
+            
+
+            fetchData()
+
+                .then(function(data) {
+
+                    // Display resolved data
+
+                    result.innerHTML =
+                        "<h3>Server Data:</h3>" +
+                        "ID: " + data.id + "<br>" +
+                        "Name: " + data.name + "<br>" +
+                        "Course: " + data.course + "<br>" +
+                        "Status: " + data.status;
+
+                })
+
+                .catch(function(error) {
+
+                    result.innerHTML = "Error: " + error;
+
+                })
+
+                .finally(function() {
+
+                    button.disabled = false;
+
+                });
+
+        });
+
+    </script>
+
+</body>
+</html>
