@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Photo Gallery</title>
+
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: lightblue;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            background-color: white;
+            width: 600px;
+            max-width: 90%;
+            margin: 50px auto;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        h1 {
+            color: darkblue;
+        }
+
+        /* Main Image */
+
+        #mainImage {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        /* Thumbnail Images */
+
+        .thumbnails {
+            margin-top: 20px;
+        }
+
+        .thumbnails img {
+            width: 100px;
+            height: 80px;
+            object-fit: cover;
+            margin: 5px;
+            cursor: pointer;
+            border: 3px solid transparent;
+            border-radius: 5px;
+        }
+
+        .thumbnails img:hover {
+            border-color: blue;
+            transform: scale(1.05);
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>My Photo Gallery</h1>
+
+        <p>Click on any image to view it.</p>
+
+        <!-- Main Image -->
+
+        <img
+            id="mainImage"
+            src="https://picsum.photos/id/1015/600/350"
+            alt="Main Photo"
+        >
+
+        <!-- Thumbnail Images -->
+
+        <div class="thumbnails">
+
+            <img
+                src="https://picsum.photos/id/1015/600/350"
+                alt="Photo 1"
+            >
+
+            <img
+                src="https://picsum.photos/id/1016/600/350"
+                alt="Photo 2"
+            >
+
+            <img
+                src="https://picsum.photos/id/1018/600/350"
+                alt="Photo 3"
+            >
+
+            <img
+                src="https://picsum.photos/id/1020/600/350"
+                alt="Photo 4"
+            >
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+       
+
+        let mainImage = document.getElementById("mainImage");
+
+
+      
+
+        let thumbnails = document.querySelectorAll(".thumbnails img");
+
+
+        
+
+        thumbnails.forEach(function(image) {
+
+            image.addEventListener("click", function() {
+
+               
+
+                mainImage.src = image.src;
+
+                
+
+                mainImage.alt = image.alt;
+
+            });
+
+        });
+
+    </script>
+
+</body>
+</html>
