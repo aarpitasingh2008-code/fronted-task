@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Advanced To-Do List</title>
+
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: lightblue;
+            text-align: center;
+        }
+
+        .container {
+            background-color: white;
+            width: 500px;
+            margin: 70px auto;
+            padding: 25px;
+            border-radius: 10px;
+        }
+
+        h1 {
+            color: darkblue;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            width: 50%;
+        }
+
+        button {
+            padding: 10px;
+            color: white;
+            background-color: green;
+            border: none;
+            cursor: pointer;
+            margin: 3px;
+            border-radius: 5px;
+        }
+
+        ul {
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+            background-color: lightgray;
+            padding: 10px;
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 5px;
+        }
+
+        li span {
+            flex: 1;
+            text-align: left;
+        }
+
+        .completed {
+            text-decoration: line-through;
+            color: gray;
+        }
+
+        .delete {
+            background-color: red;
+        }
+
+        .move {
+            background-color: blue;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Advanced To-Do List</h1>
+
+        <input type="text" id="taskInput"
+        placeholder="Enter your task">
+
+        <button id="addBtn">Add Task</button>
+
+        <ul id="taskList"></ul>
+
+    </div>
+
+
+    <script>
+
+        
+
+        let input = document.getElementById("taskInput");
+
+        let addBtn = document.getElementById("addBtn");
+
+        let taskList = document.getElementById("taskList");
+
+
+        
+
+        function addTask() {
+
+            let task = input.value.trim();
+
+            if (task === "") {
+
+                alert("Please enter a task!");
+
+                return;
+
+            }
+
+
+          
+
+            let li = document.createElement("li");
+
+
+           
+
+            let checkbox = document.createElement("input");
+
+            checkbox.type = "checkbox";
+
+
+          
+
+            let span = document.createElement("span");
+
+            span.textContent = task;
+
+
+
+            checkbox.addEventListener("change", function() {
+
+                if (checkbox.checked) {
+
+                    span.classList.add("completed");
+
+                }
+                else {
+
+                    span.classList.remove("completed");
+
+                }
+
+            });
+
+
+           
+
+            let deleteBtn = document.createElement("button");
+
+            deleteBtn.textContent = "Delete";
+
+            deleteBtn.className = "delete";
+
+
+            deleteBtn.addEventListener("click", function() {
+
+                li.remove();
+
+            });
+
+
+           
+
+            let upBtn = document.createElement("button");
+
+            upBtn.textContent = "Up";
+
+            upBtn.className = "move";
+
+
+            upBtn.addEventListener("click", function() {
+
+                let previous = li.previousElementSibling;
+
+                if (previous !== null) {
+
+                    taskList.insertBefore(li, previous);
+
+                }
+
+            });
+
+
+
+            let downBtn = document.createElement("button");
+
+            downBtn.textContent = "Down";
+
+            downBtn.className = "move";
+
+
+            downBtn.addEventListener("click", function() {
+
+                let next = li.nextElementSibling;
+
+                if (next !== null) {
+
+                    taskList.insertBefore(next, li);
+
+                }
+
+            });
+
+
+            
+
+            li.appendChild(checkbox);
+
+            li.appendChild(span);
+
+            li.appendChild(upBtn);
+
+            li.appendChild(downBtn);
+
+            li.appendChild(deleteBtn);
+
+
+            
+
+            taskList.appendChild(li);
+
+
+            
+
+            input.value = "";
+
+        }
+
+
+      
+
+        addBtn.addEventListener("click", addTask);
+
+
+    </script>
+
+</body>
+</html>
